@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerenciamento de Clientes</title>
+  <style>
+    * { box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { margin: 0; background-color: #f4f6f9; padding: 2rem; }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+    .card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+    .form-group { margin-bottom: 1rem; }
+    label { display: block; margin-bottom: .4rem; font-weight: bold; }
+    input { width: 100%; padding: .5rem; border: 1px solid #ccc; border-radius: 4px; }
+    .btn { padding: .6rem 1.2rem; border: none; border-radius: 4px; cursor: pointer; color: white; font-weight: bold; text-decoration: none; }
+    .btn-primary { background-color: #007bff; }
+    .btn-secondary { background-color: #6c757d; }
+    .btn-success { background-color: #28a745; }
+    .search-box { display: flex; gap: 10px; margin-bottom: 1rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+    th { background-color: #343a40; color: white; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h2>Gerenciamento de Clientes</h2>
+    <a href="painel.html" class="btn btn-secondary">Voltar ao Painel</a>
+  </div>
+
+  <!-- Formuário de Cadastro -->
+  <div class="card">
+    <h3>Novo Cliente</h3>
+    <form id="formCliente">
+      <div class="form-group">
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" required placeholder="Ex: Carlos Eduardo">
+      </div>
+      <div class="form-group">
+        <label for="cpf">CPF (Armazenamento Seguro / LGPD)</label>
+        <input type="text" id="cpf" required placeholder="000.000.000-00">
+      </div>
+      <div class="form-group">
+        <label for="telefone">Telefone</label>
+        <input type="text" id="telefone" required placeholder="(48) 99999-8888">
+      </div>
+      <button type="submit" class="btn btn-success">Cadastrar Cliente</button>
+    </form>
+  </div>
+
+  <!-- Busca e Listagem -->
+  <div class="card">
+    <h3>Listagem de Clientes</h3>
+    <div class="search-box">
+      <input type="text" id="campoBusca" placeholder="Digite um termo para buscar por nome ou telefone...">
+      <button id="btnBuscar" class="btn btn-primary">Buscar</button>
+      <button id="btnLimpar" class="btn btn-secondary">Limpar</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Telefone</th>
+        </tr>
+      </thead>
+      <tbody id="tabelaClientes">
+        <tr><td colspan="3">A carregar clientes...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="clientes.js"></script>
+</body>
+</html>
